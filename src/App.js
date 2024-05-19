@@ -68,12 +68,16 @@ function App() {
 
     chart.timeScale().scrollToPosition(5);
 
-    const socket = io("http://localhost:4000", {
-      withCredentials: true,
-      extraHeaders: {
-        access_token: token,
-      },
-    });
+    const socket = io(
+      // "http://localhost:4000"
+      "http://growwserver.ap-south-1.elasticbeanstalk.com:8081",
+      {
+        withCredentials: true,
+        extraHeaders: {
+          access_token: token,
+        },
+      }
+    );
 
     socket.on("connect", () => {
       console.log("Connected to server");
