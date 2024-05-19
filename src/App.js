@@ -33,9 +33,7 @@ function App() {
         },
         textColor: theme === "dark" ? Colors.dark_text : Colors.light_text,
       },
-      crosshair: {
-        mode: 2,
-      },
+
       grid: {
         horzLines: {
           color: theme === "dark" ? Colors.dark_border : Colors.light_border,
@@ -61,8 +59,13 @@ function App() {
       priceLineStyle: 1,
       baseLineStyle: 1,
     });
-
+    chart.timeScale().applyOptions({
+      timeVisible: true,
+      borderVisible: true,
+      barSpacing: 5,
+    });
     chart.timeScale().fitContent();
+
     chart.timeScale().scrollToPosition(5);
 
     const socket = io("http://localhost:4000", {
@@ -116,6 +119,7 @@ function App() {
             style={{
               color: theme === "dark" ? Colors.dark_text : Colors.light_text,
               fontWeight: 400,
+              fontSize: "16px",
             }}
           >
             {stock} . 1 . RSE
@@ -129,7 +133,7 @@ function App() {
                 ? Colors.profit
                 : Colors.errorColor,
               fontWeight: 500,
-              fontSize: "16px",
+              fontSize: "14px",
             }}
           >
             {stockData &&
