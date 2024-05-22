@@ -69,8 +69,8 @@ function App() {
     chart.timeScale().scrollToPosition(5);
 
     const socket = io(
-      // "http://localhost:4000"
-      "http://growwserver.ap-south-1.elasticbeanstalk.com:8081",
+      "http://localhost:4000",
+      // "http://xyz_your_webserver_uri.elasticbeanstalk.com:8081",
       {
         withCredentials: true,
         extraHeaders: {
